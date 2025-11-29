@@ -63,12 +63,12 @@ resource "azurerm_linux_virtual_machine" "vm" {
   name                = "ubuntu-vm"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
-  size                = "Standard_B1s"      # cheap & good for testing
+  size                = "Standard_B1s"
   admin_username      = "azureuser"
 
   admin_ssh_key {
     username   = "azureuser"
-    public_key = file("~/.ssh/id_rsa.pub")  # your SSH public key
+    public_key = var.ssh_public_key
   }
 
   network_interface_ids = [
@@ -88,7 +88,13 @@ resource "azurerm_linux_virtual_machine" "vm" {
   }
 }
 
-# Public IP Output
+# ---- VARIABLES & OUTPUTS ----
+
+variable "ssh_public_key" {
+  description = "SSH public key for the VM"
+  type        = string
+}
+
 output "public_ip" {
   value = azurerm_public_ip.public_ip.ip_address
 }
