@@ -34,12 +34,13 @@ resource "azurerm_subnet" "subnet" {
   address_prefixes     = ["10.0.1.0/24"]
 }
 
-# 4. Create Public IP
+# 4. Create Public IP (UPDATED for Standard SKU)
 resource "azurerm_public_ip" "public_ip" {
   name                = "yash-public-ip"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
-  allocation_method   = "Dynamic"
+  allocation_method   = "Static"   # Changed from Dynamic
+  sku                 = "Standard" # Added Explicitly
 }
 
 # 5. Create Network Security Group (Firewall)
