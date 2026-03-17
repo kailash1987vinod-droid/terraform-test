@@ -43,7 +43,7 @@ resource "azurerm_public_ip" "public_ip" {
   sku                 = "Standard" # Added Explicitly
 }
 
-# 5. Create Network Security Group (Firewall)
+# 5. Create Network Security Groups (Firewall)
 resource "azurerm_network_security_group" "nsg" {
   name                = "yash-firewall-nsg"
   location            = azurerm_resource_group.rg.location
