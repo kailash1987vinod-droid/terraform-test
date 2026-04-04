@@ -111,7 +111,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
   name                            = "yash-ubuntu-vm"
   resource_group_name             = azurerm_resource_group.rg.name
   location                        = azurerm_resource_group.rg.location
-  size                            = "Standard_B1s" # Economical size
+  size                            = "Standard_B2as_v2" # Economical size
   admin_username                  = var.admin_username
   admin_password                  = var.admin_password
   disable_password_authentication = false
