@@ -7,7 +7,7 @@ variable "resource_group_name" {
 variable "location" {
   description = "Azure region"
   type        = string
-  default     = "eastus2"
+  default     = "Central India"
 }
 
 variable "admin_username" {
